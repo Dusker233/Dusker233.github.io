@@ -19,24 +19,39 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Dusker&#39;s blog">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="Neural Networks   Non-linear hypotheses 在特征较少时，对于一个边界较为复杂的数据集中，我们可以使用逻辑回归，通过构造一个多项式来拟合决策边界，但在特征较多时，逻辑回归便显得较为繁杂，我们很难构造一个合适的多项式来较好的拟合其决策边界。 例如，当有 100 个特征时，如果我们只构造一个二次多项式，那么这个多项式最多会有 (1002)\binom{100}{2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Networks">
+<meta property="og:url" content="http://example.com/2022/12/29/Neural-Networks/index.html">
 <meta property="og:site_name" content="Dusker&#39;s blog">
+<meta property="og:description" content="Neural Networks   Non-linear hypotheses 在特征较少时，对于一个边界较为复杂的数据集中，我们可以使用逻辑回归，通过构造一个多项式来拟合决策边界，但在特征较多时，逻辑回归便显得较为繁杂，我们很难构造一个合适的多项式来较好的拟合其决策边界。 例如，当有 100 个特征时，如果我们只构造一个二次多项式，那么这个多项式最多会有 (1002)\binom{100}{2">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/.com//6e7c53acc0064600a1ba86d2aafb1471.png">
+<meta property="og:image" content="http://example.com/.com//da447730058a4a8ea7da64431b2db055.png">
+<meta property="og:image" content="http://example.com/.com//157a4fc73116408195bb19b3fe73ac50.png">
+<meta property="og:image" content="http://example.com/.com//94f256b560454f868307c9135c7e9c31.png">
+<meta property="og:image" content="http://example.com/.com//ab3d94535ae04f5cbfefded77e1c8757.png">
+<meta property="og:image" content="http://example.com/.com//8e473d7d3a9041a081b1976a1a6f9fb2.png">
+<meta property="og:image" content="http://example.com/.com//9e54149eaac14cea8d9243346fa4fb6b.png">
+<meta property="og:image" content="http://example.com/.com//2547797f4c4741cbbaccf0cd20d193be.png">
+<meta property="og:image" content="http://example.com/.com//5009a8b84b9c46dc8948df9e81d1b65d.png">
+<meta property="og:image" content="http://example.com/.com//37ac60b2179a4d31bd74594d3d86b71c.png">
+<meta property="article:published_time" content="2022-12-29T08:57:26.000Z">
+<meta property="article:modified_time" content="2022-12-29T10:25:53.578Z">
 <meta property="article:author" content="Dusker">
-<meta property="article:tag" content="机器学习, 算法竞赛">
+<meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/.com//6e7c53acc0064600a1ba86d2aafb1471.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2022/12/29/Neural-Networks/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/12/29/Neural-Networks/","path":"2022/12/29/Neural-Networks/","title":"Neural Networks"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Dusker's blog</title>
+<title>Neural Networks | Dusker's blog</title>
   
 
 
@@ -68,7 +83,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Dusker's blog</h1>
+      <p class="site-title">Dusker's blog</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -90,7 +105,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -103,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#neural-networks"><span class="nav-number">1.</span> <span class="nav-text"> Neural Networks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#non-linear-hypotheses"><span class="nav-number">1.1.</span> <span class="nav-text"> Non-linear hypotheses</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model-representation"><span class="nav-number">1.2.</span> <span class="nav-text"> Model representation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#example-and-intuitions"><span class="nav-number">1.3.</span> <span class="nav-text"> Example and intuitions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-class-classification"><span class="nav-number">1.4.</span> <span class="nav-text"> Multi-class classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cost-function"><span class="nav-number">1.5.</span> <span class="nav-text"> Cost function</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -136,16 +152,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/29/Neural-Networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -159,13 +176,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Dusker's blog">
+      <meta itemprop="name" content="Neural Networks | Dusker's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/12/29/Neural-Networks/" class="post-title-link" itemprop="url">Neural Networks</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Neural Networks
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -180,6 +197,13 @@
     </span>
 
   
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
       <span class="post-meta-item-icon">
@@ -204,7 +228,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="neural-networks"><a class="markdownIt-Anchor" href="#neural-networks"></a> Neural Networks</h2>
+        <h2 id="neural-networks"><a class="markdownIt-Anchor" href="#neural-networks"></a> Neural Networks</h2>
 <hr>
 <h3 id="non-linear-hypotheses"><a class="markdownIt-Anchor" href="#non-linear-hypotheses"></a> Non-linear hypotheses</h3>
 <p>在特征较少时，对于一个边界较为复杂的数据集中，我们可以使用逻辑回归，通过构造一个多项式来拟合决策边界，但在特征较多时，逻辑回归便显得较为繁杂，我们很难构造一个合适的多项式来较好的拟合其决策边界。</p>
@@ -346,7 +370,6 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span><span class="vlist-
 <p>在神经网络中，代价函数基本一致，不同的是由于参数不再是一个向量，而是一个矩阵，于是代价函数会有所变动。</p>
 <p>具体地，假设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mi mathvariant="normal">Θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>∈</mo><msup><mi mathvariant="double-struck">R</mi><mi>K</mi></msup></mrow><annotation encoding="application/x-tex">h_\Theta(x) \in \mathbb{R}^K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">Θ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8413309999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.07153em;">K</span></span></span></span></span></span></span></span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mo fence="true">(</mo><msub><mi>h</mi><mi mathvariant="normal">Θ</mi></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo fence="true">)</mo></mrow><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\left(h_\Theta(x)\right)_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0497em;vertical-align:-0.29969999999999997em;"></span><span class="minner"><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">Θ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mclose delimcenter" style="top:0em;">)</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.161964em;"><span style="top:-2.4003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29969999999999997em;"><span></span></span></span></span></span></span></span></span></span> 表示第 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个输出</p>
 
-      
     </div>
 
     
@@ -354,8 +377,12 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span><span class="vlist-
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag"># 机器学习</a>
+          </div>
+
+        
+
     </footer>
   </article>
 </div>
@@ -364,6 +391,8 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span><span class="vlist-
 
 
 
+
+    <div class="comments gitalk-container"></div>
 </div>
   </main>
 
@@ -452,7 +481,7 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span><span class="vlist-
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Dusker_233","repo":"Dusker233.github.io","client_id":"8d030912d884fe41336a","client_secret":"0db2efc525083684c6afd5ec5d4c83efa028e877","admin_user":"Dusker_233","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"d1546d731a9f30cc80127d57142a482b"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"Dusker_233","repo":"Dusker233.github.io","client_id":"8d030912d884fe41336a","client_secret":"0db2efc525083684c6afd5ec5d4c83efa028e877","admin_user":"Dusker_233","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"efac8265268fdc7dd761082b31fe83b8"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 </body>
