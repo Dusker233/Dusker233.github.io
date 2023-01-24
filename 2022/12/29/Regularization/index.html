@@ -17,33 +17,33 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"dusker233.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="Regularization  The problem of overfitting 过拟合（overfitting）指的是当有多个特征时，预测函数的代价可能会很低，但对于新的预测数据全都错误的情况，这会导致模型的泛化能力较差。  左侧的称为欠拟合（underfitting），右侧的称为过拟合。  当特征过多而数据过少时，就有可能出现过拟合的情况。 当过拟合的情况发生时，该如何解决呢？  减少特">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Regularization">
-<meta property="og:url" content="http://example.com/2022/12/29/Regularization/index.html">
+<meta property="og:url" content="https://dusker233.github.io/2022/12/29/Regularization/index.html">
 <meta property="og:site_name" content="Dusker&#39;s blog">
 <meta property="og:description" content="Regularization  The problem of overfitting 过拟合（overfitting）指的是当有多个特征时，预测函数的代价可能会很低，但对于新的预测数据全都错误的情况，这会导致模型的泛化能力较差。  左侧的称为欠拟合（underfitting），右侧的称为过拟合。  当特征过多而数据过少时，就有可能出现过拟合的情况。 当过拟合的情况发生时，该如何解决呢？  减少特">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/12/29/Regularization/image-20221229211343092.png">
-<meta property="og:image" content="http://example.com/2022/12/29/Regularization/image-20221229211328257.png">
-<meta property="og:image" content="http://example.com/2022/12/29/Regularization/image-20221229211353669.png">
-<meta property="og:image" content="http://example.com/2022/12/29/Regularization/image-20221229211401118.png">
-<meta property="og:image" content="http://example.com/2022/12/29/Regularization/image-20221229211418764.png">
+<meta property="og:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211343092.png">
+<meta property="og:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211328257.png">
+<meta property="og:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211353669.png">
+<meta property="og:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211401118.png">
+<meta property="og:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211418764.png">
 <meta property="article:published_time" content="2022-12-29T13:11:35.000Z">
 <meta property="article:modified_time" content="2022-12-29T13:14:23.972Z">
 <meta property="article:author" content="Dusker">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/12/29/Regularization/image-20221229211343092.png">
+<meta name="twitter:image" content="https://dusker233.github.io/2022/12/29/Regularization/image-20221229211343092.png">
 
 
-<link rel="canonical" href="http://example.com/2022/12/29/Regularization/">
+<link rel="canonical" href="https://dusker233.github.io/2022/12/29/Regularization/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/12/29/Regularization/","path":"2022/12/29/Regularization/","title":"Regularization"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://dusker233.github.io/2022/12/29/Regularization/","path":"2022/12/29/Regularization/","title":"Regularization"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Regularization | Dusker's blog</title>
@@ -158,7 +158,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/29/Regularization/">
+    <link itemprop="mainEntityOfPage" href="https://dusker233.github.io/2022/12/29/Regularization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
