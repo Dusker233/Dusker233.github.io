@@ -115,7 +115,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -137,6 +137,117 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dusker233.github.io/2023/01/04/%E5%86%B3%E7%AD%96%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dusker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dusker's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Dusker's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/04/%E5%86%B3%E7%AD%96%E6%A0%91/" class="post-title-link" itemprop="url">决策树</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-04 22:27:00" itemprop="dateCreated datePublished" datetime="2023-01-04T22:27:00+08:00">2023-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-01-30 20:52:52" itemprop="dateModified" datetime="2023-01-30T20:52:52+08:00">2023-01-30</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>14 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="决策树"><a class="markdownIt-Anchor" href="#决策树"></a> 决策树</h1>
+<h2 id="基本流程"><a class="markdownIt-Anchor" href="#基本流程"></a> 基本流程</h2>
+<p>决策树基于树结构进行决策，每个内部节点对应某个属性上的“测试”（test），每个分支对应于该测试的一种可能结果，每个叶结点对应于一个预测结果。</p>
+<p>学习过程：通过对训练样本的分析来确定“划分属性”；</p>
+<p>预测过程：将测试实例从根节点开始，沿着划分属性所构成的“判定测试序列”下行，直到叶子结点。</p>
+<p>基本流程：分治：从上往下递归，在每个中间节点找到“划分”属性</p>
+<p>停止条件：</p>
+<ul>
+<li>当前节点包含的样本全部属于同一类别，无需划分；</li>
+<li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分：我们把当前结点标记为叶结点，其类别设定为<strong>该结点</strong>所含样本最多的类别；</li>
+<li>当前节点包含的样本集合为空，不能划分：我们把当前结点标记为叶结点，其类别设定为<strong>其父节点</strong>所含样本最多的类别。</li>
+</ul>
+<p>注意，第二类和第三类处理实质不同：第二类是利用当前结点的后验分布，第三类是把父节点的样本分布作为当前结点的先验分布。</p>
+<p><img src="/2023/01/04/%E5%86%B3%E7%AD%96%E6%A0%91/image-20230105171433596.png" alt="image-20230105171433596"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/04/%E5%86%B3%E7%AD%96%E6%A0%91/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
