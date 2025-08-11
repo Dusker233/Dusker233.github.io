@@ -115,7 +115,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -137,6 +137,118 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://dusker233.github.io/2023/01/27/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dusker">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Dusker's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Dusker's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/01/27/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/" class="post-title-link" itemprop="url">稀疏自编码器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-01-27 00:00:36 / 修改时间：00:02:52" itemprop="dateCreated datePublished" datetime="2023-01-27T00:00:36+08:00">2023-01-27</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="稀疏自编码器"><a class="markdownIt-Anchor" href="#稀疏自编码器"></a> 稀疏自编码器</h1>
+<h2 id="自编码器"><a class="markdownIt-Anchor" href="#自编码器"></a> 自编码器</h2>
+<p>传统反向传播神经网络缺点：</p>
+<ul>
+<li>梯度越来越稀疏（梯度弥散）：从顶层越往下，误差校正信号越来越小；</li>
+<li>容易收敛到局部最小值，尤其是从远离最优区域开始的时候（将参数初始化为随机值会导致这种情况发生）；</li>
+<li>只能进行有监督训练，但大部分的数据是没有标签的，而人类的大脑可以从没有标签的数据中学习。</li>
+</ul>
+<p>1986 年，Rumelhart 提出了自动编码器的概念，并将其用于高维复杂数据的处理，促进了神经网络的发展。自编码神经网络是一种无监督（自监督）学习算法，它使用了反向传播算法，并让<strong>目标值等于输入值</strong>，即自编码神经网络尝试学习一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>W</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>≈</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">h_{W, b}(x) \approx x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.13889em;">W</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 的函数。</p>
+<p><img src="/2023/01/27/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/image-20230127000157707.png" alt="image-20230127000157707"></p>
+<p>自编码器分类：</p>
+<ul>
+<li>浅层自编码（Autoencoder）</li>
+<li>稀疏自编码（Sparse Autoencoder）</li>
+<li>栈式自编码（Stacked Autoencoder）</li>
+<li>去噪自编码（Denoising Autoencoder）</li>
+<li>变分自编码（Variational Autoencoder）</li>
+</ul>
+<p>自编码器的共同点：学习一个<strong>与输入相同的输出</strong>，并尽可能的让其具有较强的<strong>泛化能力</strong>。</p>
+<p>自编码器的构成：<br>
+<img src="/2023/01/27/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/image-20230127000203567.png" alt="image-20230127000203567"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/01/27/%E7%A8%80%E7%96%8F%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1098,7 +1210,7 @@ c-16-25.333-24-45-24-59z"/></svg></span></span></span></span></span></span></spa
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:55</span>
+    <span title="站点阅读时长">2:56</span>
   </span>
 </div>
 <div class="busuanzi-count">
